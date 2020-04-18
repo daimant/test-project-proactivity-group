@@ -1,8 +1,14 @@
 import React from "react";
+import Service from "./Service/Service";
 import classes from "./ServiceList.module.css";
 
-const ServiceList = () => {
-  return <h1 className={classes.serviceList}>Service List</h1>;
+const ServiceList = ({ serviceData }) => {
+  debugger;
+  return (
+    <div>
+      <Service />
+    </div>
+  );
 };
 
 export default ServiceList;

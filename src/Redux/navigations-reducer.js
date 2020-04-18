@@ -4,7 +4,7 @@ let initialStore = [
 ];
 
 const navigationsReducer = (state = initialStore, action) => {
-  if (action) console.log(action);
+  // if (action) console.log(action);
   return state;
 };
 

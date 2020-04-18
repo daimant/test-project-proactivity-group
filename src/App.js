@@ -6,7 +6,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import ServiceList from "./Components/ServiceList/ServiceList";
+import ServiceListContainer from "./Components/ServiceList/ServiceListContainer";
 import Favorites from "./Components/Favorites/Favorites";
 import NavBar from "./Components/NavBar/NavBar";
 
@@ -22,7 +22,10 @@ const App = () => {
               path="/"
               render={() => <Redirect to={"/service-list"} />}
             />
-            <Route path="/service-list" render={() => <ServiceList />} />
+            <Route
+              path="/service-list"
+              render={() => <ServiceListContainer />}
+            />
             <Route path="/favorites" render={() => <Favorites />} />
             <Route path="*" render={() => <h1>Страница не найдена</h1>} />
           </Switch>
