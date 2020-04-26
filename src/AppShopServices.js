@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import store from "./Redux/store";
 import AppContainer from "./AppContainer";
 
+window.store = store;
+
 const AppShopServices = () => {
   return (
     <React.StrictMode>

@@ -1,13 +1,12 @@
 import * as axios from "axios";
 
 const instance = axios.create({
-  baseURL:
-    "https://api.cmsmagazine.ru/v1/instrumentsList?instrument_type_code=cms&",
+  baseURL: "https://api.cmsmagazine.ru/v1/",
 });
 export const servicesAPI = {
-  getServices: (currentPage = 1) => {
+  getServices: (currentPage) => {
     return instance
-      .get(`page=${currentPage}`)
+      .get(`instrumentsList?instrument_type_code=cms&page=${currentPage}`)
       .then((response) => response.data);
   },
 };

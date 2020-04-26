@@ -1,8 +1,24 @@
 import React from "react";
-import classes from "./Favorites.module.css";
+import Favorite from "./Favorite/Favorite";
+// import classes from "./Favorites.module.css";
 
-const Favorites = () => {
-  return <h1 className={classes.favorites}>Favorites</h1>;
+const Favorites = ({ favorites, removeFromFavorites }) => {
+  // debugger;
+  return (
+    <div>
+      <div>
+        {favorites.map((el, i) => (
+          <Favorite
+            key={i}
+            id={el.id}
+            title={el.title}
+            url={el.url}
+            removeFromFavorites={removeFromFavorites}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Favorites;

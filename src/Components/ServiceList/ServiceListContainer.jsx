@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ServiceList from "./ServiceList";
-import { requestServices } from "../../Redux/service-list-reducer";
-import { getService } from "../../Redux/service-list-selectors";
+import {
+  addToFavorites,
+  requestServices,
+} from "../../Redux/service-list-reducer";
+import { getCurrentPage, getService } from "../../Redux/selectors";
 
 class ServiceListContainer extends Component {
   componentDidMount() {
@@ -13,12 +16,20 @@ class ServiceListContainer extends Component {
     this.props.requestServices(pageNumber);
   };
   render() {
-    return <ServiceList serviceData={this.props.serviceData} />;
+    return (
+      <ServiceList
+        serviceData={this.props.serviceData}
+        addToFavorites={this.props.addToFavorites}
+      />
+    );
   }
 }
 
-const mapStateToProps = (state) => ({ serviceData: getService(state) });
+const mapStateToProps = (state) => ({
+  serviceData: getService(state),
+  currentPage: getCurrentPage(state),
+});
 
-export default connect(mapStateToProps, { requestServices })(
+export default connect(mapStateToProps, { requestServices, addToFavorites })(
   ServiceListContainer
 );

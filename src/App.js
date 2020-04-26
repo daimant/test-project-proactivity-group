@@ -7,7 +7,7 @@ import {
   Switch,
 } from "react-router-dom";
 import ServiceListContainer from "./Components/ServiceList/ServiceListContainer";
-import Favorites from "./Components/Favorites/Favorites";
+import FavoritesContainer from "./Components/Favorites/FavoritesContainer";
 import NavBar from "./Components/NavBar/NavBar";
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
               path="/service-list"
               render={() => <ServiceListContainer />}
             />
-            <Route path="/favorites" render={() => <Favorites />} />
+            <Route path="/favorites" render={() => <FavoritesContainer />} />
             <Route path="*" render={() => <h1>Страница не найдена</h1>} />
           </Switch>
         </div>
