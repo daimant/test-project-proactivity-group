@@ -8,15 +8,34 @@ let initialStore = {
   current_page: 1,
   data: [],
   favorites: [],
+  countSort: 0,
 };
 
 const serviceListReducer = (state = initialStore, action) => {
   switch (action.type) {
     case SET_SERVICES:
-      return { ...action.services, favorites: [] };
+      if (action.sort) {
+        return {
+          ...state,
+          data: [...action.services.data],
+          current_page: action.services.current_page,
+          countSort: state.countSort + 1,
+        };
+      } else if (state.data.length) {
+        return {
+          ...state,
+          data: [...state.data, ...action.services.data],
+          current_page: action.services.current_page,
+        };
+      } else return { ...state, ...action.services };
 
     case ADD_TO_FAVORITES:
-      return { ...state, favorites: [...state.favorites, action.el] };
+      if (state.favorites.includes(action.el)) {
+        return {
+          ...state,
+          favorites: [...state.favorites].filter((el) => el !== action.el),
+        };
+      } else return { ...state, favorites: [...state.favorites, action.el] };
 
     case REMOVE_FROM_FAVORITES:
       return {
@@ -34,15 +53,18 @@ export const removeFromFavorites = (el) => ({
   el,
 });
 export const addToFavorites = (el) => ({ type: ADD_TO_FAVORITES, el });
-export const setServices = (services) => ({ type: SET_SERVICES, services });
+export const setServices = (services, sort = false) => ({
+  type: SET_SERVICES,
+  services,
+  sort,
+});
 export const requestServices = (page) => async (dispatch) => {
-  // dispatch(toggleIsFetching(true));
-  // dispatch(setCurrentPage(page));
-
-  const data = await servicesAPI.getServices(page);
-  // dispatch(toggleIsFetching(false));
-  dispatch(setServices(data));
-  // dispatch(setTotalUsersCount(data.totalCount));
+  const response = await servicesAPI.getServices(page);
+  dispatch(setServices(response));
+};
+export const sort = (type, countSort) => async (dispatch) => {
+  const response = await servicesAPI.getSortServices(type, countSort);
+  dispatch(setServices(response, true));
 };
 
 export default serviceListReducer;

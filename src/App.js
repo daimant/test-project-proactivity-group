@@ -20,10 +20,10 @@ const App = () => {
             <Route
               exact
               path="/"
-              render={() => <Redirect to={"/service-list"} />}
+              render={() => <Redirect to={"/instruments"} />}
             />
             <Route
-              path="/service-list"
+              path="/instruments"
               render={() => <ServiceListContainer />}
             />
             <Route path="/favorites" render={() => <FavoritesContainer />} />

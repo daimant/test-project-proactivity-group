@@ -117,7 +117,7 @@ function checkValidServiceWorker(swUrl, config) {
           });
         });
       } else {
-        // Favorite worker found. Proceed as normal.
+        // FavoriteItem worker found. Proceed as normal.
         registerValidSW(swUrl, config);
       }
     })
