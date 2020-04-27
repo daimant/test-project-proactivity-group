@@ -16,7 +16,7 @@ const ServiceList = ({
   return (
     <div>
       <div>
-        Всего сервисов: {totalServices}
+        Всего Инструментов: {totalServices}
         Обновлено: {lastUpdateDate}
         <button onClick={() => sort("partners_count", countSort)}>
           Партнеры
