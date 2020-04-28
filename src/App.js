@@ -12,7 +12,7 @@ import NavBar from "./Components/NavBar/NavBar";
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/test-project-proactivity-group">
       <div className="app-wrapper">
         <NavBar />
         <div className="app-wrapper-content">

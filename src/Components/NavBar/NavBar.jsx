@@ -7,7 +7,7 @@ const NavBar = () => {
     <nav className={classes.nav}>
       <div className={`${classes.item} ${classes.active}`}>
         <NavLink to="/instruments" activeClassName={classes.activeLink}>
-          Список Инструментов
+          Инструменты
         </NavLink>
       </div>
       <div className={`${classes.item} ${classes.active}`}>
