@@ -1,12 +1,44 @@
 .serviceList {
   background-color: #fff;
 }
-.usersPhoto {
-  max-width: 100px;
-  border-radius: 10px;
+.downloadButton {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #fff;
+  border: none;
+  outline: none;
 }
 
-.usersList {
-  margin-top: 10px;
-  margin-left: 10px;
+.serviceListHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+.serviceListHeader button {
+  background: #fff;
+  border: none;
+  outline: none;
+  position: relative;
+  right: 5px;
+}
+.about {
+  font-size: 12px;
+  flex: 10;
+}
+.partners {
+  flex: 2;
+}
+.projects {
+  flex: 2;
+}
+.rate {
+  flex: 2;
+}
+.changer {
+  flex: 3;
 }

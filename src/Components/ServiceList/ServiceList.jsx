@@ -1,6 +1,6 @@
 import React from "react";
 import ServiceItem from "../common/ServiceItem/ServiceItem";
-// import classes from "./ServiceList.module.css";
+import classes from "./ServiceList.module.css";
 
 const ServiceList = ({
   serviceData,
@@ -14,17 +14,28 @@ const ServiceList = ({
   countSort,
 }) => {
   return (
-    <div>
-      <div>
-        Всего Инструментов: {totalServices}
-        Обновлено: {lastUpdateDate}
-        <button onClick={() => sort("partners_count", countSort)}>
-          Партнеры
-        </button>
-        <button onClick={() => sort("works_count", countSort)}>Проекты</button>
-        <button onClick={() => sort("rate", countSort)}>Оценка</button>В
-        избранное
+    <div className={classes.serviceList}>
+      <div className={classes.serviceListHeader}>
+        <span className={classes.about}>
+          Всего Инструментов: <b>{totalServices}</b> Обновлено:{" "}
+          <b>{lastUpdateDate}</b>
+        </span>
+        <span className={classes.partners}>
+          <button onClick={() => sort("partners_count", countSort)}>
+            Партнеры
+          </button>
+        </span>
+        <span className={classes.projects}>
+          <button onClick={() => sort("works_count", countSort)}>
+            Проекты
+          </button>
+        </span>
+        <span className={classes.rate}>
+          <button onClick={() => sort("rate", countSort)}>Оценка</button>
+        </span>
+        <span className={classes.changer}>В избранное</span>
       </div>
+      <hr />
       <div>
         {serviceData.map((el, i) => (
           <ServiceItem
@@ -36,7 +47,10 @@ const ServiceList = ({
           />
         ))}
       </div>
-      <button onClick={() => requestServices(currentPage + 1)}>
+      <button
+        className={classes.downloadButton}
+        onClick={() => requestServices(currentPage + 1)}
+      >
         Загрузить еще
       </button>
     </div>

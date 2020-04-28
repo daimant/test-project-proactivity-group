@@ -1,25 +1,31 @@
 import React from "react";
 import ServiceItem from "../common/ServiceItem/ServiceItem";
-// import classes from "./Favorites.module.css";
+import classes from "./Favorites.module.css";
 
 const Favorites = ({ favorites, removeFromFavorites }) => {
-  // debugger;
+  if (!favorites.length)
+    return <h2 className={classes.nothing}>Избранных инструментов нет</h2>;
+
   return (
-    <div>
-      <div>Название Партнеры Проекты Оценка Удалить</div>
+    <div className={classes.favorites}>
+      <div className={classes.favoritesHeader}>
+        <span className={classes.logotype}> </span>
+        <span className={classes.name}>Название</span>
+        <span className={classes.partners}>Партнеры</span>
+        <span className={classes.projects}>Проекты</span>
+        <span className={classes.rate}>Оценка</span>
+        <span className={classes.changer}>Удалить</span>
+      </div>
+      <hr />
       <div>
-        {favorites.length ? (
-          favorites.map((el, i) => (
-            <ServiceItem
-              number={i}
-              key={i}
-              el={el}
-              removeFromFavorites={removeFromFavorites}
-            />
-          ))
-        ) : (
-          <h2>Избранных инструментов нет</h2>
-        )}
+        {favorites.map((el, i) => (
+          <ServiceItem
+            number={i}
+            key={i}
+            el={el}
+            removeFromFavorites={removeFromFavorites}
+          />
+        ))}
       </div>
     </div>
   );

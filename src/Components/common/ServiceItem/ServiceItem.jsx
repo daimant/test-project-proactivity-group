@@ -1,5 +1,5 @@
 import React from "react";
-// import classes from "../ServiceList.module.css";
+import classes from "./ServiceItem.module.css";
 
 const ServiceItem = ({
   number,
@@ -9,30 +9,37 @@ const ServiceItem = ({
   favorites,
 }) => {
   return (
-    <div>
-      {!removeFromFavorites && number + 1}
-      &nbsp;
-      <img src={el.image} width={el.image ? "35" : "0"} alt="" />
-      {!el.image && el.firstLettersOfName}
-      &nbsp;
-      {el.title}
-      &nbsp;
-      {el.partnersCount}
-      &nbsp;
-      {el.worksCount}
-      &nbsp;
-      {el.rate}
-      &nbsp;
-      {addToFavorites && (
-        <input
-          type="checkbox"
-          onChange={() => addToFavorites(el)}
-          checked={favorites.includes(el)}
-        />
-      )}
-      {removeFromFavorites && (
-        <button onClick={() => removeFromFavorites(el)}>Удалить</button>
-      )}
+    <div
+      className={
+        el.isSponsor
+          ? `${classes.serviceItem} ${classes.isSponsor}`
+          : classes.serviceItem
+      }
+    >
+      <span className={classes.number}>
+        {!removeFromFavorites && number + 1}
+      </span>
+      <span className={classes.logotype}>
+        {el.image && <img src={el.image} alt="" />}
+        {!el.image && el.firstLettersOfName}
+      </span>
+      <span className={classes.name}>{el.title}</span>
+      <span className={classes.partners}>{el.partnersCount}</span>
+      <span className={classes.projects}>{el.worksCount}</span>
+      <span className={classes.rate}>{!!el.rate && el.rate}</span>
+      <span className={classes.changer}>
+        {addToFavorites && (
+          <input
+            className={classes.checkbox}
+            type="checkbox"
+            onChange={() => addToFavorites(el.id)}
+            checked={favorites.some((element) => element.id === el.id)}
+          />
+        )}
+        {removeFromFavorites && (
+          <button onClick={() => removeFromFavorites(el.id)}>Удалить</button>
+        )}
+      </span>
     </div>
   );
 };

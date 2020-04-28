@@ -12,6 +12,7 @@ class FavoritesContainer extends Component {
   // onPageChanged = (pageNumber) => {
   //   this.props.requestServices(pageNumber);
   // };
+
   render() {
     return (
       <Favorites
@@ -25,7 +26,6 @@ class FavoritesContainer extends Component {
 const mapStateToProps = (state) => ({
   favorites: getFavorites(state),
   serviceData: getService(state),
-  // currentPage: getCurrentPage(state),
 });
 
 export default connect(mapStateToProps, { removeFromFavorites })(

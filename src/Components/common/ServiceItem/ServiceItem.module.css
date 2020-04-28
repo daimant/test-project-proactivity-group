@@ -1,2 +1,42 @@
 .isSponsor {
+  background-color: #fbe2a1;
+}
+.serviceItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+.serviceItem input[type="checkbox"] {
+  transform: scale(1.4);
+  opacity: 0.9;
+  cursor: pointer;
+}
+.number {
+  flex: 1;
+}
+.logotype {
+  flex: 2;
+}
+.logotype img {
+  max-width: 50px;
+  max-height: 22px;
+}
+.name {
+  flex: 7;
+}
+.partners {
+  flex: 2;
+}
+.projects {
+  flex: 2;
+}
+.rate {
+  flex: 2;
+}
+.changer {
+  flex: 3;
 }
