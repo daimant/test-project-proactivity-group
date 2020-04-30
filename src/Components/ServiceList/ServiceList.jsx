@@ -8,34 +8,54 @@ const ServiceList = ({
   totalServices,
   lastUpdateDate,
   favorites,
-  requestServices,
+  requestNextServicesList,
   currentPage,
   sort,
   countSort,
+  sortType,
+  sortDirect,
 }) => {
   return (
     <div className={classes.serviceList}>
       <div className={classes.serviceListHeader}>
-        <span className={classes.about}>
+        <span className={`${classes.about} ${classes.itemsHeader}`}>
           Всего Инструментов: <b>{totalServices}</b> Обновлено:{" "}
           <b>{lastUpdateDate}</b>
         </span>
         <span className={classes.partners}>
-          <button onClick={() => sort("partners_count", countSort)}>
-            Партнеры
-          </button>
+          <span
+            className={`${classes.itemsHeader} ${
+              sortType === "partners_count" ? classes.activeButton : ""
+            }`}
+            onClick={() => sort("partners_count", countSort)}
+          >
+            Партнеры{" "}
+            {sortType === "partners_count" && (countSort % 2 ? " ∨" : " ∧")}
+          </span>
         </span>
         <span className={classes.projects}>
-          <button onClick={() => sort("works_count", countSort)}>
-            Проекты
-          </button>
+          <span
+            className={`${classes.itemsHeader} ${
+              sortType === "works_count" ? classes.activeButton : ""
+            }`}
+            onClick={() => sort("works_count", countSort)}
+          >
+            Проекты{" "}
+            {sortType === "works_count" && (countSort % 2 ? " ∨" : " ∧")}
+          </span>
         </span>
         <span className={classes.rate}>
-          <button onClick={() => sort("rate", countSort)}>Оценка</button>
+          <span
+            className={`${classes.itemsHeader} ${
+              sortType === "rate" ? classes.activeButton : classes.rate
+            }`}
+            onClick={() => sort("rate", countSort)}
+          >
+            Оценка{sortType === "rate" && (countSort % 2 ? " ∨" : " ∧")}
+          </span>
         </span>
         <span className={classes.changer}>В избранное</span>
       </div>
-      <hr />
       <div>
         {serviceData.map((el, i) => (
           <ServiceItem
@@ -49,7 +69,9 @@ const ServiceList = ({
       </div>
       <button
         className={classes.downloadButton}
-        onClick={() => requestServices(currentPage + 1)}
+        onClick={() =>
+          requestNextServicesList(currentPage + 1, sortType, sortDirect)
+        }
       >
         Загрузить еще
       </button>

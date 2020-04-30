@@ -8,13 +8,13 @@ import {
 } from "react-router-dom";
 import ServiceListContainer from "./Components/ServiceList/ServiceListContainer";
 import FavoritesContainer from "./Components/Favorites/FavoritesContainer";
-import NavBar from "./Components/NavBar/NavBar";
+import NavBarContainer from "./Components/NavBar/NavBarContainer";
 
 const App = () => {
   return (
     <Router basename="/test-project-proactivity-group">
       <div className="app-wrapper">
-        <NavBar />
+        <NavBarContainer />
         <div className="app-wrapper-content">
           <Switch>
             <Route

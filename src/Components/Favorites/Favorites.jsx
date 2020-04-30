@@ -16,7 +16,6 @@ const Favorites = ({ favorites, removeFromFavorites }) => {
         <span className={classes.rate}>Оценка</span>
         <span className={classes.changer}>Удалить</span>
       </div>
-      <hr />
       <div>
         {favorites.map((el, i) => (
           <ServiceItem

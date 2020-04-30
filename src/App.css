@@ -1,11 +1,10 @@
 .app-wrapper {
   display: grid;
-  max-width: 1000px;
-  margin: 10px auto;
+  /*margin: 10px auto;*/
   grid-template-areas: "nav content content";
 
-  grid-template-columns: 1fr 10fr;
-  grid-gap: 10px;
+  grid-template-columns: 18fr 82fr;
+  /*grid-gap: 10px;*/
   font-family: Helvetica, sans-serif;
 }
 

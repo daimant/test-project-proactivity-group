@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import ServiceList from "./ServiceList";
 import {
   addToFavorites,
+  requestNextServicesList,
   requestServices,
   sort,
 } from "../../Redux/service-list-reducer";
@@ -12,6 +13,8 @@ import {
   getFavorites,
   getLastUpdateDate,
   getService,
+  getSortDirect,
+  getSortType,
   getTotalServices,
 } from "../../Redux/selectors";
 
@@ -33,10 +36,12 @@ class ServiceListContainer extends Component {
         lastUpdateDate={this.props.lastUpdateDate}
         totalServices={this.props.totalServices}
         favorites={this.props.favorites}
-        requestServices={this.props.requestServices}
+        requestNextServicesList={this.props.requestNextServicesList}
         currentPage={this.props.currentPage}
         sort={this.props.sort}
         countSort={this.props.countSort}
+        sortType={this.props.sortType}
+        sortDirect={this.props.sortDirect}
       />
     );
   }
@@ -49,10 +54,13 @@ const mapStateToProps = (state) => ({
   totalServices: getTotalServices(state),
   favorites: getFavorites(state),
   countSort: getCountSort(state),
+  sortType: getSortType(state),
+  sortDirect: getSortDirect(state),
 });
 
 export default connect(mapStateToProps, {
   requestServices,
+  requestNextServicesList,
   addToFavorites,
   sort,
 })(ServiceListContainer);

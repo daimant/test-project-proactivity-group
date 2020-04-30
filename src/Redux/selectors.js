@@ -7,6 +7,8 @@ export const getLastUpdateDate = (state) =>
 export const getTotalServices = (state) => state.serviceListData.total;
 export const getCountSort = (state) => state.serviceListData.countSort;
 export const getFavorites = (state) => state.serviceListData.favorites;
+export const getSortType = (state) => state.serviceListData.sortType;
+export const getSortDirect = (state) => state.serviceListData.sortDirect;
 // export const getFavorites = createSelector(getFavoritesSelector, el =>
 //   el.filter(() => true)
 // );

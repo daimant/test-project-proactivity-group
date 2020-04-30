@@ -1,16 +1,56 @@
 .nav {
-  grid-area: nav;
   background-color: #f5f5f5;
-  padding: 20px;
-  border-radius: 10px;
+  text-align: left;
+  position: sticky;
+  height: 100vh;
+  top: 0;
+}
+
+.logotype {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1rem;
+}
+.logotype .firstRow {
+  flex: 1;
+  margin-top: 3px;
+  background-color: rgb(231, 15, 39);
+  color: white;
+  text-align: center;
+  max-width: 50px;
+  max-height: 25px;
+  font-weight: 800;
+}
+.logotype .secondRow {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  margin-left: 5px;
+  text-align: left;
+  color: #000;
+}
+
+.item {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  font-size: 90%;
 }
 
 .item a {
-  color: #000;
   text-decoration: none;
+  color: #000;
 }
 
 .item a.activeLink {
+  box-sizing: border-box;
   color: #ec2138;
-  border-bottom-color: #eb2037;
+}
+
+.countPages {
+  color: #f5f5f5;
+  background-color: #ec2138;
+  font-size: 12px;
+  border-radius: 6px;
 }
