@@ -36,6 +36,10 @@
 .name {
   flex: 7;
 }
+.nav {
+  color: #000;
+  text-decoration: none;
+}
 .partners {
   flex: 2;
 }

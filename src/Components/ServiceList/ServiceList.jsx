@@ -29,7 +29,7 @@ const ServiceList = ({
             }`}
             onClick={() => sort("partners_count", countSort)}
           >
-            Партнеры{" "}
+            Партнеры
             {sortType === "partners_count" && (countSort % 2 ? " ∨" : " ∧")}
           </span>
         </span>
@@ -40,8 +40,7 @@ const ServiceList = ({
             }`}
             onClick={() => sort("works_count", countSort)}
           >
-            Проекты{" "}
-            {sortType === "works_count" && (countSort % 2 ? " ∨" : " ∧")}
+            Проекты{sortType === "works_count" && (countSort % 2 ? " ∨" : " ∧")}
           </span>
         </span>
         <span className={classes.rate}>
@@ -54,7 +53,9 @@ const ServiceList = ({
             Оценка{sortType === "rate" && (countSort % 2 ? " ∨" : " ∧")}
           </span>
         </span>
-        <span className={classes.changer}>В избранное</span>
+        <span className={`${classes.changer} ${classes.itemsHeader}`}>
+          В избранное
+        </span>
       </div>
       <div>
         {serviceData.map((el, i) => (

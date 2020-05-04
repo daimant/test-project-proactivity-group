@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./ServiceItem.module.css";
+import { NavLink } from "react-router-dom";
 
 const ServiceItem = ({
   number,
@@ -23,7 +24,11 @@ const ServiceItem = ({
         {el.image && <img src={el.image} alt="" />}
         {!el.image && el.firstLettersOfName}
       </span>
-      <span className={classes.name}>{el.title}</span>
+      <span className={classes.name}>
+        <NavLink to={`/instruments/` + el.code} className={classes.nav}>
+          {el.title}
+        </NavLink>
+      </span>
       <span className={classes.partners}>{el.partnersCount}</span>
       <span className={classes.projects}>{el.worksCount}</span>
       <span className={classes.rate}>{!!el.rate && el.rate}</span>
