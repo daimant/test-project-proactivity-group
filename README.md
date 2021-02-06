@@ -1,3 +1,7 @@
+Собранная версия: 
+https://daimant.github.io/test-project-proactivity-group/
+
+Задание:
 Тестовое задание на вакансию “Front-end разработчик” в Proactivity Group
 Требуемые технологии при реализации задачи:
 ● React
@@ -51,4 +55,5 @@ shortUrl: "shop-script.ru" — “красивая” ссылка (исполь
 firstLettersOfName: "SH" — если инструмент не имеет логотипа, выводим сивольное лого
 }
 
+Ссылка на макет:
 https://cmsmagazine.ru/cms/corporative/?activeSort%5Bsort%5D=works_count&activeSort%5Bsort_direction%5D=asc
